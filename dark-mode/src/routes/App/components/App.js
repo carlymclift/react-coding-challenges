@@ -6,20 +6,20 @@ import '../styles/_app.scss';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
+  const [rootClass, setRootClass] = useState('app')
 
   const toggleMode = () => {
-
+    console.log('hi')
+    !darkMode ? setDarkMode(true) && setRootClass('app dark-mode') : setDarkMode(false) && setRootClass('app')
   }
 
   return (
-    <div className="app">
+    <div className={rootClass}>
       <div className="level">
         <div>
           <h1 className="title">Dark Mode Challenge</h1>
         </div>
-
-        {/* --The button that should toggle dark mode-- */}
-        <button className="app__dark-mode-btn icon level-right" onClick={toggleMode()}>
+        <button className="app__dark-mode-btn icon level-right" onClick={toggleMode}>
           {!darkMode ? 
             <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon style={{color:'#FFA500'}} icon={faSun} />
           } 
