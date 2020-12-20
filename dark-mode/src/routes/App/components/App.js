@@ -10,7 +10,8 @@ function App() {
 
   const toggleMode = () => {
     console.log('hi')
-    !darkMode ? setDarkMode(true) && setRootClass('app dark-mode') : setDarkMode(false) && setRootClass('app')
+    !darkMode ? setRootClass('app dark-mode') : setRootClass('app')
+    !darkMode ? setDarkMode(true) : setDarkMode(false)
   }
 
   return (
