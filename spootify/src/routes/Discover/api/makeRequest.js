@@ -5,6 +5,7 @@ import config from '../../../config';
 const { api } = config;
 
 export default async function makeRequest(path) {
+  console.log('hi')
   const { data: { access_token: token } } = await axios.post(
     api.authUrl,
     qs.stringify({ 'grant_type': 'client_credentials' }),
@@ -23,3 +24,5 @@ export default async function makeRequest(path) {
 
   return res;
 }
+
+// export default makeRequest
