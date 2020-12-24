@@ -6,6 +6,7 @@ const { api } = config;
 
 export default async function makeRequest(path) {
   console.log('hi')
+  // console.log(btoa)
   const { data: { access_token: token } } = await axios.post(
     api.authUrl,
     qs.stringify({ 'grant_type': 'client_credentials' }),
@@ -16,11 +17,12 @@ export default async function makeRequest(path) {
       }
     }
   );
-
+  
   const res = await axios.get(
     `${api.baseUrl}/browse/${path}?locale=en_US`,
     {  headers: { Authorization: `Bearer ${token}` } }
   );
+  // console.log(res)
 
   return res;
 }
