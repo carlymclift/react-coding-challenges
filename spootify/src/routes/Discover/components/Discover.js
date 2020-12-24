@@ -14,8 +14,16 @@ export default class Discover extends Component {
     };
   }
 
-  componentDidMount() {
-    makeRequest()
+  async componentDidMount() {
+    const newRel = await makeRequest('new-releases')
+    const featAlb = await makeRequest('featured-playlists')
+    console.log(featAlb)
+    this.setState(
+      {
+        newReleases: newRel.data.albums.items,
+        playlists: featAlb.data.albums.items
+      }
+      )
   }
 
   render() {
