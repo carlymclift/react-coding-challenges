@@ -21,7 +21,7 @@ export default class Discover extends Component {
     this.setState(
       {
         newReleases: newRel.data.albums.items,
-        playlists: featAlb.data.albums.items
+        playlists: featAlb.data.playlists.items
       }
       )
   }
