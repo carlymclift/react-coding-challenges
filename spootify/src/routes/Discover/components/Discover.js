@@ -17,11 +17,13 @@ export default class Discover extends Component {
   async componentDidMount() {
     const newRel = await makeRequest('new-releases')
     const featAlb = await makeRequest('featured-playlists')
+    const cat = await makeRequest('categories')
     console.log(featAlb)
     this.setState(
       {
         newReleases: newRel.data.albums.items,
-        playlists: featAlb.data.playlists.items
+        playlists: featAlb.data.playlists.items,
+        categories: cat.data.categories.items
       }
       )
   }
